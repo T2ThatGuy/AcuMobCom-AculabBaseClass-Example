@@ -13,6 +13,7 @@
     "@aculab-com/react-native-aculab-client": "^1.4.1-beta",
     "@react-navigation/native": "^6.0.13",
     "@react-navigation/native-stack": "^6.9.0",
+    "eventemitter3": "^5.0.1",
     "react": "18.1.0",
     "react-native": "0.70.1",
     "react-native-gesture-handler": "^2.6.2",
