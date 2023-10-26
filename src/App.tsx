@@ -4,10 +4,16 @@ import { View, StatusBar } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { styles, COLOURS } from './styles';
-import AcuMobFunctionComponent from './AcuMobFunctionComponent';
 import { RegisterScreen } from './RegisterScreen';
+import AcuMobProvider, { registerAcuMobEvent } from './AcuMobProvider';
+import MainScreen from './MainScreen';
 
 const Stack = createNativeStackNavigator();
+
+// Example event registration
+registerAcuMobEvent('incomingCall', obj =>
+  console.debug('Incomming call: ', obj),
+);
 
 function AcuMobComScreen({ route }: any) {
   const {
@@ -19,13 +25,14 @@ function AcuMobComScreen({ route }: any) {
   } = route.params;
   return (
     <View style={styles.container}>
-      <AcuMobFunctionComponent
-        webRTCAccessKey={webRTCAccessKey}
-        cloudRegionId={cloudRegionId}
+      <AcuMobProvider
         logLevel={logLevel}
-        registerClientId={registerClientId}
         webRTCToken={webRTCToken}
-      />
+        cloudRegionId={cloudRegionId}
+        webRTCAccessKey={webRTCAccessKey}
+        registerClientId={registerClientId}>
+        <MainScreen />
+      </AcuMobProvider>
     </View>
   );
 }
