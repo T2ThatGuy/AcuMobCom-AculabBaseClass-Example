@@ -10,7 +10,7 @@ export const COLOURS = {
   LIGHT_GRAY: 'lightgray',
   BLACK: 'black',
   GREEN: 'green',
-};
+} as const;
 
 export const styles = StyleSheet.create({
   center: {
@@ -110,4 +110,4 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     bottom: 20,
   },
-});
+} as const);
